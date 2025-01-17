@@ -192,7 +192,8 @@ async def main():
     urls = [
         "https://amzn.to/4jat5Wm",
         "https://amzn.to/429ETSI",
-        "https://amzn.to/40shRoQ"
+        "https://amzn.to/40shRoQ",
+        "https://www.amazon.de/-/en/Heldengr%C3%BCn%C2%AE-Organic-Rosemary-Natural-Booster/dp/B0CNTJ92F4/ref=sr_1_5?crid=TVEEZG6K6OT8&dib=eyJ2IjoiMSJ9.thMtlOl1kb3EHmnFDaMHd44mglo0ldihywH6sw9E492iCW1mbU32gLaUM8Jqooojf97J-Khj3Zw8248CmIxGfqwE_pxNVMnW307xwfu4c_uuTEUgWMTNtadmG7aFBo-Hq8bNTf4pqgjA-kAVqKCtYxEUD-WLSOuD-2RRBsZiLK0sdDDm3McYICqH9pQr8WsI2Nc1SKPusTilTKGMiahDZ_8cdhas0pEHESwR50PvxZM1JTpCB2WicH2w2iluPlgqDNZQz7u0jms7gB2ZbrW3uqZdqKii5u8wMGpZ-uZWI8IZYOC9sZHAn_7XUGgx_eAVzlda0dzWWSpJAfugthFL_qg42ZudwxYqhUpx1JOkAQyiy6A8w0O8G5s2VbK0kL4uFu2Lr2bI9wBAekHRZEda3HpH5I9Rd9g4zJmg8zW2kme_httj2n6j6LL2enoZn8fS.YMzGgQ83hfD9OCfLJp9weB30K9U4cHeQbVqr2Pdnqbg&dib_tag=se&keywords=rosmarin%C3%B6l%2Bhaare&nsdOptOutParam=true&qid=1737148501&sprefix=ros%2Caps%2C126&sr=8-5&th=1"
     ]
     jsons = []
     for url in urls:

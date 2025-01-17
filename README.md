@@ -23,3 +23,6 @@ Struktur: tm ist ebenfalls eine Liste oder ein Array mit sechs Werten: [a, b, c,
   - tm[5] (Y-Koordinate): Gibt die vertikale Position des Texts auf der Seite an.
   
 - Verwendung: Im gezeigten Code wird tm[5] genutzt, um den Text anhand seiner Y-Koordinate zu filtern (z. B. if y > 50 and y < 720).
+# needed to be downloaded in Windows 
+- pip install playwright 
+- playwright install
