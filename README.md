@@ -26,3 +26,20 @@ Struktur: tm ist ebenfalls eine Liste oder ein Array mit sechs Werten: [a, b, c,
 # needed to be downloaded in Windows 
 - pip install playwright 
 - playwright install
+
+
+# Plattform Price-Extracter
+
+1. Conzept:
+ 
+ - Prodcute Extracter
+                       
+ - Prodcute Filter  
+
+  --------->>> Price_comparer
+
+
+2. Technical
+ 
+ - Backend (Python, Flask)
+ - Datenbank 
