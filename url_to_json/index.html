@@ -3,69 +3,109 @@
 <head>
     <meta charset="UTF-8">
   <style>
-    .product-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        gap: 20px;
-        padding: 20px;
-    }
+   .product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* Abstand zwischen den Produkten reduzieren */
+    padding: 20px;
+}
+
+.product {
+    width: 300px; /* Produktgröße um 50% verringert */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px; /* Weniger Polsterung für kleinere Ansicht */
+}
+
+.product img {
+    width: 100%;  /* Bild auf die Breite des Containers anpassen */
+    max-height: 200px;  /* Maximale Höhe für Bilder festlegen */
+    object-fit: contain; /* Das Bild bleibt innerhalb des Containers und verzerrt nicht */
+    border-radius: 5px;
+}
+
+.product .section-1 {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;  /* Weniger Abstand zwischen den Elementen */
+}
+
+.product .section-2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product .section-2 .price {
+    font-size: 14px;  /* Schriftgröße für den Preis verringern */
+    font-weight: bold;
+}
+
+.product .section-2 .buy-now {
+    padding: 6px 12px;  /* Button-Größe verringern */
+    font-size: 12px;    /* Schriftgröße für Button verringern */
+    background-color: #f0c14b;
+    color: #111;
+    border: 1px solid;
+    border-color: #a88734 #9c7e31 #846a29;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.product .section-2 .buy-now:hover {
+    background-color: #f0c14b;
+}
+
+.product-image-frame {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sections {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.search-container div {
+    margin: 0 10px;
+}
+
+/* Medienabfrage für kleinere Bildschirme */
+@media (max-width: 768px) {
     .product {
-        width: 400px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        padding: 10px;
+        width: 200px;  /* Produktgröße um 50% verringert */
+        padding: 5px;  /* Weniger Polsterung für kleinere Ansicht */
     }
+
     .product img {
-        height: auto;
-        border-radius: 5px;
+        max-height: 150px;  /* Bildhöhe für kleinere Bildschirme reduzieren */
     }
+
     .product .section-1 {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
+        gap: 5px;  /* Weniger Abstand zwischen den Elementen */
     }
-    .product .section-2 {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+
     .product .section-2 .price {
-        font-size: 20px;
-        font-weight: bold;
+        font-size: 14px;  /* Preis kleiner machen */
     }
+
     .product .section-2 .buy-now {
-        padding: 10px 20px;
-        background-color: #f0c14b;
-        color: #111;
-        border: 1px solid;
-        border-color: #a88734 #9c7e31 #846a29;
-        border-radius: 3px;
-        cursor: pointer;
+        padding: 6px 12px;  /* Button kleiner machen */
+        font-size: 12px;    /* Schriftgröße für Button verringern */
     }
-    .product .section-2 .buy-now:hover {
-        background-color: #f0c14b;
-    }
-    .product-image-frame {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .sections {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        justify-content: space-between;
-    }
-    .search-container{
-        display: flex;
-        justify-content: center;
-        margin: 20px;
-    }
-    .search-container div {
-        margin: 0 10px;
-    }
+}
+
 
   </style>
 </head>
@@ -73,15 +113,14 @@
 <!-- Search elements -->
 <div class="search-container">
     <div>
-        <label for="search">Search</label>
+        <label for="search">Suche nach</label>
         <input type="text" id="search" placeholder="Search for products">
     </div>
     <div>
                 <!-- price filter -->
-        <label for="price">Price</label>
-        <input type="number" id="price" min="0" value="50">
+        <label for="price" > Preise</label>
+        <input type="number" class="price" id="price" min="0" value="50">
     </div>
-
 
 </div>
 <!-- Product container -->
@@ -90,134 +129,7 @@
 </div>
 
 <script>
-      const jsons = [
-        {
-            "url": "https://amzn.to/4jat5Wm",
-            "buybox": [
-                {
-                    "displayPrice": "9,89\u00a0\u20ac",
-                    "priceAmount": 9.89,
-                    "currencySymbol": "\u20ac",
-                    "integerValue": "9",
-                    "decimalSeparator": ",",
-                    "fractionalValue": "89",
-                    "locale": "de-DE",
-                    "buyingOptionType": "NEW"
-                },
-                {
-                    "displayPrice": "6,65\u00a0\u20ac",
-                    "priceAmount": 6.65,
-                    "currencySymbol": "\u20ac",
-                    "integerValue": "6",
-                    "decimalSeparator": ",",
-                    "fractionalValue": "65",
-                    "locale": "de-DE",
-                    "buyingOptionType": "USED"
-                },
-                {
-                    "displayPrice": "9,89\u00a0\u20ac",
-                    "priceAmount": 9.89,
-                    "currencySymbol": "\u20ac",
-                    "integerValue": "9",
-                    "decimalSeparator": ",",
-                    "fractionalValue": "89",
-                    "locale": "de-DE",
-                    "buyingOptionType": "PICKUP"
-                }
-            ],
-            "landingImageUrl": "https://m.media-amazon.com/images/I/61VeA-UsG0L.__AC_SY300_SX300_QL70_ML2_.jpg",
-            "title": "Jetzt kaufen: Amazon Basics DisplayPort (Quelle) auf HDMI (Display)-Kabel, unidirektional, 4K bei 30 Hz, 1920 x 1200, 1080 P, vergoldete Stecker, 1.8 m, Schwarz",
-            "buyingOptionTypes": [
-                "NEW",
-                "USED",
-                "PICKUP"
-            ]
-        },
-        {
-            "url": "https://amzn.to/429ETSI",
-            "buybox": [
-                {
-                    "displayPrice": "5,79\u00a0\u20ac",
-                    "priceAmount": 5.79,
-                    "currencySymbol": "\u20ac",
-                    "integerValue": "5",
-                    "decimalSeparator": ",",
-                    "fractionalValue": "79",
-                    "locale": "de-DE",
-                    "buyingOptionType": "NEW"
-                },
-                {
-                    "displayPrice": "5,21\u00a0\u20ac",
-                    "priceAmount": 5.21,
-                    "currencySymbol": "\u20ac",
-                    "integerValue": "5",
-                    "decimalSeparator": ",",
-                    "fractionalValue": "21",
-                    "locale": "de-DE",
-                    "buyingOptionType": "SNS"
-                },
-                {
-                    "displayPrice": "5,79\u00a0\u20ac",
-                    "priceAmount": 5.79,
-                    "currencySymbol": "\u20ac",
-                    "integerValue": "5",
-                    "decimalSeparator": ",",
-                    "fractionalValue": "79",
-                    "locale": "de-DE",
-                    "buyingOptionType": "PICKUP"
-                }
-            ],
-            "landingImageUrl": "https://m.media-amazon.com/images/I/41q2aHXrKrL._SY300_SX300_QL70_ML2_.jpg",
-            "title": "Jetzt kaufen: Gliss 4-in-1 Kur N\u00e4hrpflege Oil Nutritive (400 ml), Haarkur mit HAPTIQ System & Marula-\u00d6l n\u00e4hrt strohiges, strapaziertes Haar, Haarmaske sorgt f\u00fcr sinnliche Geschmeidigkeit",
-            "buyingOptionTypes": [
-                "NEW",
-                "SNS",
-                "PICKUP"
-            ]
-        },
-        {
-            "url": "https://amzn.to/40shRoQ",
-            "buybox": [
-                {
-                    "displayPrice": "2,95\u00a0\u20ac",
-                    "priceAmount": 2.95,
-                    "currencySymbol": "\u20ac",
-                    "integerValue": "2",
-                    "decimalSeparator": ",",
-                    "fractionalValue": "95",
-                    "locale": "de-DE",
-                    "buyingOptionType": "NEW"
-                },
-                {
-                    "displayPrice": "2,65\u00a0\u20ac",
-                    "priceAmount": 2.65,
-                    "currencySymbol": "\u20ac",
-                    "integerValue": "2",
-                    "decimalSeparator": ",",
-                    "fractionalValue": "65",
-                    "locale": "de-DE",
-                    "buyingOptionType": "SNS"
-                },
-                {
-                    "displayPrice": "2,95\u00a0\u20ac",
-                    "priceAmount": 2.95,
-                    "currencySymbol": "\u20ac",
-                    "integerValue": "2",
-                    "decimalSeparator": ",",
-                    "fractionalValue": "95",
-                    "locale": "de-DE",
-                    "buyingOptionType": "PICKUP"
-                }
-            ],
-            "landingImageUrl": "https://m.media-amazon.com/images/I/31h83wsPTrL._SX300_SY300_QL70_ML2_.jpg",
-            "title": "Jetzt kaufen: Gliss Shampoo Aqua Revive Schwerelos (250 ml), Haarshampoo mit Panthenol und Meeresalgen, Reparaturshampoo f\u00fcr normales bis feines Haar",
-            "buyingOptionTypes": [
-                "NEW",
-                "SNS",
-                "PICKUP"
-            ]
-        }
-      ]
+      const jsons = {{PRODUCT_CARDS}}
       // Search element
       const search = document.querySelector('#search');
       const price = document.querySelector('#price');
@@ -281,10 +193,7 @@
             </div>
         `;
         productContainer.appendChild(product);
-
-
   })
-
 
 </script>
 </body>

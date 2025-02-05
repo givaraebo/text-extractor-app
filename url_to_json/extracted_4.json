@@ -1,0 +1,91 @@
+{
+    "script": [
+        {
+            "inner_json_data": {
+                "shouldUseNatc": true
+            }
+        },
+        {
+            "inner_json_data": {
+                "turboWeblab": "RCX_CHECKOUT_TURBO_DESKTOP_NONPRIME_87784",
+                "holdbackSecondaryPanelsWeblab": "",
+                "strings": {
+                    "TURBO_CLOSE_TEXT": "Schlie\u00dfen.",
+                    "TURBO_CHECKOUT_HEADER": "Jetzt kaufen: L'Or\u00e9al Paris Elseve Dream Lange Maske, angereichert mit Rizinus\u00f6l/Keratin f\u00fcr langes Haar, 1 St\u00fcck",
+                    "TURBO_LOADING_TEXT": "Zusammenfassung der Bestellung wird geladen"
+                },
+                "additionalWeblabs": "{\"PAX_CHECKOUT_BUY_NOW_UFO_TANGO_DESKTOP_1118473\":\"\",\"PAX_CHECKOUT_BUY_NOW_AMP_TANGO_DESKTOP_1118500\":\"\",\"RCX_CHECKOUT_DISABLE_TURBO_FOR_NPA_EXPERIMENT_543201\":\"\",\"PAX_CHECKOUT_BUY_NOW_TO_TANGO_PARAMETER_ELIGIBILITY_REVERSE_DESKTOP_BATCH2_1114232\":\"\",\"UPMT_CHECKOUT_BUY_NOW_GIFT_TANGO_DESKTOP_1044576\":\"\",\"PAX_CHECKOUT_BUY_NOW_TO_TANGO_DESKTOP_EXPERIMENT_NON_PRIME_1088576\":\"\",\"PAX_CHECKOUT_BUY_NOW_TO_TANGO_PARAMETER_ELIGIBILITY_REVERSE_DESKTOP_1089853\":\"\",\"PAX_TURBO_INITIATE_MIGRATION_DESKTOP_NON_PRIME_986684\":\"\"}",
+                "inputs": {
+                    "verificationSessionID": "261-2272464-6629566",
+                    "a": "B08FWFRG3K",
+                    "quantity": "1",
+                    "oid": "",
+                    "incentivizedCart": "",
+                    "addressId": ""
+                },
+                "configurations": {
+                    "isSignInEnabled": true,
+                    "initiateSelector": "#buy-now-button",
+                    "prefetchEnabled": true
+                },
+                "isPrimeCustomer": false,
+                "buttonID": "buy-now",
+                "eligibility": {
+                    "isEligible": false
+                },
+                "turboWeblabTreatment": "T2",
+                "isTangoCheckoutEligible": false,
+                "timeout": "5000"
+            }
+        },
+        {
+            "inner_json_data": {
+                "value": false
+            }
+        },
+        {
+            "inner_json_data": {
+                "showInlineLink": false,
+                "hzPopover": true,
+                "wishlistButtonId": "add-to-wishlist-button",
+                "dropDownHtml": "",
+                "inlineJsFix": true,
+                "wishlistButtonSubmitId": "add-to-wishlist-button-submit",
+                "maxAjaxFailureCount": "3",
+                "asin": "B08FWFRG3K",
+                "dropdownAriaLabel": "W\u00e4hle eine Liste aus dem Dropdown-Men\u00fc",
+                "closeButtonAriaLabel": "Schlie\u00dfen"
+            }
+        },
+        {
+            "inner_json_data": {
+                "formId": "addToCart",
+                "showWishListDropDown": false,
+                "wishlistPopoverWidth": 206,
+                "isAddToWishListDropDownAuiEnabled": true,
+                "showPopover": false
+            }
+        },
+        {
+            "inner_json_data": {
+                "shouldRemoveCaption": false
+            }
+        },
+        {
+            "inner_json_data": {
+                "value": false
+            }
+        },
+        {
+            "inner_json_data": {
+                "showPPDBundlesWidget": false,
+                "doRedirect": true,
+                "showEnhancedUpsellBundle": false,
+                "hijackMBCATC": false,
+                "isCBM": false,
+                "isWarrantyPresent": false,
+                "isVariationalParent": false
+            }
+        }
+    ]
+}

@@ -64,56 +64,6 @@ async def extract_json_from_inner_content(url):
         return json.dumps({"error": str(e)}, indent=4)
 
 
-def json_to_html(json_data):
-    # JSON-Daten in Python-Datenstrukturen umwandeln
-    url = json_data['url']
-    data = json.loads(json_data['data'])
-
-    # HTML-Template als Ausgangspunkt
-    html = f"""
-    <a href="{url}" target="_blank" style="text-decoration: none;">
-    <div style="display: flex; flex-direction: column; align-items: center; padding: 20px; background-color: #fff; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 600px; margin: 10px; transition: transform 0.3s ease;">
-    """
-
-    # Flexbox Layout für Bild und Titel nebeneinander
-    html += """<div style="display: flex; flex-direction: row; justify-content: space-between; width: 100%;">"""
-
-    # Landing Image
-    for item in data['script']:
-        if 'inner_json_data' in item and 'landingImageUrl' in item['inner_json_data']:
-            image_url = item['inner_json_data']['landingImageUrl']
-            # Produktbild links, 100% Breite
-            html += f"""
-            <div style="flex: 1; padding-right: 10px;">
-                <img src="{image_url}" alt="Produktbild" style="width: 250px; max-height:350px; border-radius: 10px; object-fit: contain;">
-            </div>
-            """
-
-    # Produktbezeichnung (ohne "Jetzt kaufen:")
-    for item in data['script']:
-        if 'inner_json_data' in item and 'strings' in item['inner_json_data']:
-            product_header = item['inner_json_data']['strings'].get('TURBO_CHECKOUT_HEADER',
-                                                                    'Produktname nicht verfügbar')
-            # Produktname rechts
-            html += f"""
-            <div style="flex: 2; padding-left: 10px;">
-                <h3 style="font-size: 1.1em; font-weight: bold; color: #333;">{product_header.replace('Jetzt kaufen:', '').strip()}</h3>
-            </div>
-            """
-    html += """</div>"""
-
-    # Preis in der Mitte unten
-    for item in data['div']:
-        if 'inner_json_data' in item and 'desktop_buybox_group_1' in item['inner_json_data']:
-            price = item['inner_json_data']['desktop_buybox_group_1'][0].get('displayPrice', 'Preis nicht verfügbar')
-            html += f'<p style="font-size: 1.2em; color: #007bff; font-weight: bold; text-align: center; margin-top: 10px; width: 100%;">{price}</p>'
-
-    # Abschluss für jedes Produkt
-    html += """
-        </div>
-    </a>
-    """
-    return html
 
 def clean_json(jsons):
     new_json = []
@@ -203,58 +153,12 @@ async def main():
         except Exception as e:
             print(f"Error extracting JSON from {url}: {e}")
 
-    with open('extracted_inner_json.json', 'w') as f:
-        a ={'jsons': clean_json(jsons)}
-        f.write(json.dumps(a, indent=4))
+    with open("index.html", "r") as html_file:
+        html = html_file.read()
+        html = html.replace("{{PRODUCT_CARDS}}", json.dumps(clean_json(jsons), indent=4))
+        with open("indexOut.html", "w") as output_file:
+            output_file.write(html)
 
-    # Start HTML Dokument
-    html = """
-    <!DOCTYPE html>
-    <html lang="de">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Produktseite</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                background-color: #f4f4f9;
-                margin: 0;
-                padding: 0;
-            }
-            h1 {
-                text-align: center;
-                color: #333;
-                margin-top: 20px;
-            }
-            .product-container {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-around;
-                gap: 20px;
-                padding: 20px;
-            }
-        </style>
-    </head>
-    <body>
-    <h1>Unsere Produkte</h1>
-    <div class="product-container">
-    """
-
-    # Gehe durch alle JSON-Daten und erstelle die HTML-Seite
-    for json_data in jsons:
-        html += json_to_html(json_data)
-
-    # Schließe HTML
-    html += """
-    </div>
-    </body>
-    </html>
-    """
-
-    # Speichere die HTML-Datei
-    with open("product_page.html", "w") as f:
-        f.write(html)
 
 
 # Run asynchronous code
